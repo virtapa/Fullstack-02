@@ -8,14 +8,11 @@ const Header = (props) => {
   }
   
   const Total = (props) => {
-    let sum = props.parts.reduce(function (acc, curr) {
-        return (
-            acc + curr.exercises
-            )
-        }, 0)
-        return (
-            <h4>Total of exercises: {sum}</h4>
-        ) 
+    return <h4>Number of exercises: {props.parts.reduce(
+        (acc, curr) => { return { "exercises": acc.exercises + curr.exercises } }
+      ).exercises
+      }</h4>
+
   }
 
   const Content = ({ parts }) => {
